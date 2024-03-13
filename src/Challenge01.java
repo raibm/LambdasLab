@@ -1,3 +1,4 @@
+import Model.Person;
 import interfaces.EvaluateInterface;
 import interfaces.PrintableInterface;
 import interfaces.RetrievableInterface;
@@ -41,6 +42,7 @@ public class Challenge01 {
         System.out.println(supplier.get());
         System.out.println("----------------------");
         System.out.println("Question 3:");
+
         /**
           In main() invoke the predicate() method; in predicate() do the following:
               a) Using a lambda expression, implement the Evaluate interface (typed for Integer). The relevant
@@ -57,7 +59,6 @@ public class Challenge01 {
                      and 1.8 (metres assumed) in height; and “Ann” who is 13 and 1.4 (metres) in height
 
          */
-
         EvaluateInterface<Integer> evaluateInterface = v -> v < 0;
         System.out.println("Is -1 negative? "+evaluateInterface.isNegative(-1));
         System.out.println("Is 1 negative? "+evaluateInterface.isNegative(1));
@@ -67,10 +68,13 @@ public class Challenge01 {
 
         Predicate<Integer> isEven = v -> v % 2 == 0;
         Predicate<String> isMr = v -> v.startsWith("Mr.");
+        Predicate<Person> isAdult = v -> v.getAge() >= 18;
         System.out.println("Is 4 a even number? "+check(4, isEven));
         System.out.println("Is 7 a even number? "+check(7, isEven));
         System.out.println("Does Mr. Joe Bloggs start with its with 'Mr.'? "+check("Mr. Joe Bloggs", isMr));
         System.out.println("Does Ms. Ann Bloggs start with its with 'Mr.'? "+check("Ms. Ann Bloggs", isMr));
+        System.out.println("Is Mike an adult? "+check(new Person("Mike", 33, 1.8), isAdult));
+        System.out.println("Is Ann an adult? "+check(new Person("Ann", 13, 1.4), isAdult));
         System.out.println("----------------------");
 
     }
