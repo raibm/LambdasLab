@@ -1,9 +1,8 @@
 package interfaces;
 
-import java.util.function.Predicate;
-
+@FunctionalInterface
 public interface EvaluateInterface<T> {
     boolean isNegative(T t);
-
-    T check(T t, Predicate<T> p);
+//
+//    T check(T t, Predicate<T> p);
 }
