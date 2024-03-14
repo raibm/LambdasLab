@@ -1,5 +1,6 @@
 import Model.Person;
 import interfaces.EvaluateInterface;
+import interfaces.FunctionableInterface;
 import interfaces.PrintableInterface;
 import interfaces.RetrievableInterface;
 
@@ -77,6 +78,22 @@ public class Challenge01 {
         System.out.println("Is Ann an adult? "+check(new Person("Ann", 13, 1.4), isAdult));
         System.out.println("----------------------");
 
+        System.out.println("Question 4:");
+        /**
+         * In main() invoke the function() method; in function() do the following:
+         * a) Using a lambda expression, implement the Functionable interface - the input type is Integer and the
+         * return type is String. The relevant method returns the number passed in appended to the String
+         * “Number is: ”. Invoke the relevant method passing in 25.
+         * b) Using a lambda expression, implement 4a using a Function.
+         */
+
+        function(25);
+        System.out.println("----------------------");
+    }
+
+    public static void function(Integer number) {
+        FunctionableInterface f = n -> "Number is: "+n;
+        System.out.println(f.function(number));
     }
 
     public static <T> boolean check(T t, Predicate<T> predicate) {
