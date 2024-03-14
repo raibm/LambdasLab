@@ -143,16 +143,16 @@ public class Challenge01 {
     }
     public static void sortHeight(List<Person> people){
         people.sort(Comparator.comparing(Person::getHeight));
-        people.forEach(p -> System.out.println("Ordered by height: "+p.getName()+", "+p.getHeight()));
+        people.forEach(System.out::println);
     }
     public static void sortName(List<Person> people){
         people.sort(Comparator.comparing(Person::getName));
-        people.forEach(p -> System.out.println("Ordered by name: "+p.getName()));
+        people.forEach(System.out::println);
     }
 
     public static void sortAge(List<Person> people){
         people.sort(Comparator.comparing(Person::getAge));
-        people.forEach(p -> System.out.println(p.getName()+", "+p.getAge()));
+        people.forEach(System.out::println);
     }
     public static void function(Integer number) {
         FunctionableInterface f = n -> "Number is: "+n;
