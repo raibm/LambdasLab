@@ -117,7 +117,37 @@ public class Challenge01 {
         sortAge(listPeople);
         System.out.println("----------------------");
 
-        System.out.println("Question 6:");
+        System.out.println("Question 7:");
+        /**
+         * 7. In main(), invoke the sortName() method passing down listPeople; in sortName() do the following:
+         * a) As in 6a except sort the Person objects in ascending name order.
+         * b) Output the sorted list using the Iterable forEach() method passing in a lambda expression
+         */
+        sortName(listPeople);
+        System.out.println("----------------------");
+
+        System.out.println("Question 8:");
+        /**
+         * 8. In main(), invoke the sortHeight() method passing down listPeople; in sortHeight() do the following:
+         * a) As in 6a except sort the Person objects in ascending height order.
+         * b) Output the sorted list using the Iterable forEach() method passing in a lambda expression.
+         */
+        sortHeight(listPeople);
+        System.out.println("----------------------");
+
+        System.out.println("Question 9:");
+        /**
+         * 9. Refactor 6b, 7b and 8b to use method references instead of lambda expressions.
+         */
+        System.out.println("----------------------");
+    }
+    public static void sortHeight(List<Person> people){
+        people.sort(Comparator.comparing(Person::getHeight));
+        people.forEach(p -> System.out.println("Ordered by height: "+p.getName()+", "+p.getHeight()));
+    }
+    public static void sortName(List<Person> people){
+        people.sort(Comparator.comparing(Person::getName));
+        people.forEach(p -> System.out.println("Ordered by name: "+p.getName()));
     }
 
     public static void sortAge(List<Person> people){
