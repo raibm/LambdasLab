@@ -5,8 +5,10 @@ import interfaces.PrintableInterface;
 import interfaces.RetrievableInterface;
 
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.List;
 import java.util.function.Consumer;
+import java.util.function.Function;
 import java.util.function.Predicate;
 import java.util.function.Supplier;
 
@@ -97,8 +99,31 @@ public class Challenge01 {
          * 5. In main(), invoke the getPeople() – store the result in a variable named listPeople.
          */
         List<Person> listPeople = getPeople();
+        System.out.println("----------------------");
+
+        System.out.println("Question 6:");
+        /**
+         * In main(), invoke the sortAge() method passing down listPeople; in sortAge() do the following:
+         * a) Using the Iterable sort() method (note: List extends Iterable), and the Comparator.comparing()
+         * method, sort the Person objects in ascending age order. Note that the argument to
+         * Comparator.comparing() requires a Function (In, Out) that returns a Comparable (a class that
+         * implements Comparable). From that, the comparing() method generates a Comparator that it passes
+         * to the sort() method.
+         *  Note that as of Java 8, the List interface supports the sort() method directly so there is no
+         * need to use the Collections.sort(): i.e. instead of Collections.sort(list, comparatorRef); we
+         * now have list.sort(comparatorRef);
+         * b) Output the sorted list using the Iterable forEach() method passing in a lambda expression.
+         */
+        sortAge(listPeople);
+        System.out.println("----------------------");
+
+        System.out.println("Question 6:");
     }
 
+    public static void sortAge(List<Person> people){
+        people.sort(Comparator.comparing(Person::getAge));
+        people.forEach(p -> System.out.println(p.getName()+", "+p.getAge()));
+    }
     public static void function(Integer number) {
         FunctionableInterface f = n -> "Number is: "+n;
         System.out.println(f.function(number));
