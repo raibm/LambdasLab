@@ -4,6 +4,8 @@ import interfaces.FunctionableInterface;
 import interfaces.PrintableInterface;
 import interfaces.RetrievableInterface;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.function.Consumer;
 import java.util.function.Predicate;
 import java.util.function.Supplier;
@@ -89,6 +91,12 @@ public class Challenge01 {
 
         function(25);
         System.out.println("----------------------");
+
+        System.out.println("Question 5:");
+        /**
+         * 5. In main(), invoke the getPeople() – store the result in a variable named listPeople.
+         */
+        List<Person> listPeople = getPeople();
     }
 
     public static void function(Integer number) {
@@ -99,4 +107,14 @@ public class Challenge01 {
     public static <T> boolean check(T t, Predicate<T> predicate) {
         return predicate.test(t);
     }
+
+    private static List<Person> getPeople() {
+        List<Person> result = new ArrayList<>();
+        result.add(new Person("Mike", 33, 1.8));
+        result.add(new Person("Mary", 25, 1.4));
+        result.add(new Person("Alan", 34, 1.7));
+        result.add(new Person("Zoe", 30, 1.5));
+        return result;
+    }
+
 }
